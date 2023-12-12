@@ -2,20 +2,46 @@ Main Ideas:
 
 Investment Funds:  
     Sports Betting Fund : 
-        Get Player Data in manipulable way
-        
-    Traditional Fund : 
+        1. Get Player Data in manipulable way
+        2. Train ML models or create statistics/data_structures models to collect alpha 
+        3. Find way to webscrape the best to collect live bets 
+        4. Repeate with advancements on every frontier 
+
+    Traditional Funds : 
+        Energy Fund: Enegy related alpha (green energy stock, crude oil, natural resources)
+            1. Finish Knoll Cohen Project before end of Winter Break 
+            2. Develop understanding of the Energy Sector completely 
+            3. Revise the 30 companies and any new top 30's in 30 one pagers 
+            4. Develop bias and start papertrading 
+
+        Crypto Fund: Crypto derivitives with emphasis on deep diving projects (high risk high reward) 
+            1. Develop a undestading of each sector of the crypto world 
+            2. Pick 4 sectors and write 2 pagers on thier past and present
+            3. Specialize in 2 Sectors 
+            4. Start looking at projects and create personal biases 
+
+        Safer Fund: Safe fund with a mix of ETF, Stocks, Bonds 
+            1. Create a macro economic view 
+            2. Invest and Diversity into many contries and sectors given macro bias 
+            3. Get a real grasp on manipulating risk management 
     
 Communities: 
-    New Rome
-    Alt-Right
-    Philosphey
+    New Rome: Similar to The Resistance but my own community 
+    Alt-Right: US nationalists and International Nationalists, centrally political 
     
 Social Media Based: 
-    Motivational SFC 
-    Alt-Right Propaganda 
-    Philosphey SFC 
+    Motivational/Money SFC: Somthing that is new to allow us to attract the minds of the determined and ambitious
+    Alt-Right Propaganda: Target the angry nationalists but also intelectually questioning 
 
 IU Endevors: 
     WallStreetPrep (4 courses)
+        1. Excel Crash Course
+        2. Finacial Statements 
+        3. Accounting Crash Course 
+        4. Premium Modeling Course 
+
     Complete draft of Knoll Cohen Stock Pitch 
+        1. Come up with 30 page, 1 company a page overview of the top 30 Energy Companies 
+        2. 10 compaise that look interesting in the Energy Sector 
+        3. 4 page explanation into each of the compaies 
+
