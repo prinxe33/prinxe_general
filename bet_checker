@@ -1,0 +1,33 @@
+### Takes in 5 potential leg parameters and returns the EV for each of the normal legs 
+ 
+leg_list = []
+
+### Get 5 Inputs and Append them to leg_list in nested lists 
+for i in range(1,6):
+    temp_prob = input("What is the probaility of Leg #" +str(i)+ " being correct?: ") 
+    temp_sd = input("What is the SD of Leg #" +str(i)+ " being correct?: ") 
+    leg_list.append([temp_prob, temp_sd])
+print(leg_list)
+
+### 
+leg_list_sorted = []
+sorted = False 
+
+def check_sorted(list_input):
+    global sorted
+    count = 0  
+    for i in range(0, len(list_input)): 
+        if list_input[i] == list_input[0]: 
+            count += 1 
+        elif float(list_input[i][0]) <=  float(list_input[i - 1][0]): 
+            print("this is "+ str(float(list_input[i][0]))+ " maybe less than " + str(float(list_input[i - 1][0])))
+            count += 1 
+        else: 
+            count += 0 
+    if count == 5: 
+        sorted = True 
+        print("sorted")
+    else: 
+        print("not sorted")
+        
+check_sorted(leg_list)
