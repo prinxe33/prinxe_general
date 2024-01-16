@@ -6,14 +6,27 @@ Coal: combustable black or brown sedimentary rock, decompossed plants get pressu
 Tiers of Coal: 
     1. Anthracite: Highest Rank, "hard coal"
         High percentage of fixed carbon, low percentage of volatile matter 
+        95% Carbon 5% Mineral
     2. Bituminous: 2nd Highets Rank, electricty generation, steel making 
+        86-91% Carbon 
     3. Subbituminous: 2nd Lowest Rank, low-medium heating values, electric generation
+        80% Carbon 
     4. Lignite: Lowest Rank, lowest concintration of carbon, low heating values, high moisture count, electricty generation 
+        65% Carbon 
 
 How do we get Coal??
-    
+    Surface Mining vs Underground Mining:
+        Surface: Less than 200 feet underground 
+            - Large machine remove the "overburdon" which is topsoil and rocks  
+            - Makes up 2/3rds of the total coal mining 
+        Underground: More than 200 feet underground, 'deep mining' 
+            - Can be up to 1000's of feet below ground 
 
-
+    Processing Coal: 
+        - Once taken from the ground the coal is sent to processing plants to remove the ash and dirt to increase heating value of coal 
+        - Trains are used in 70% of all coal transportation 
+        - Transportation can be more expensive then mining, coal-fired electric plants are near fields to minimize transportation cost 
+ 
 Enviormental Groups: 
 
     OCED: Group of contires (UK, Europe, USA, AUSTRALIA, JAPAN) that have plan to stimulate international trade and economic fluitity 
