@@ -1,0 +1,9 @@
+### There are three things we are wanting to build 
+# 1. In-Game SB algo (NBA / NFL (Each sport needs its own dedicated algo))
+# 2. Pre-Game SB algo (FIFA, NFL, NBA (Each sport need its own dedicated algo)) 
+# 3. Manual Bet Analyzer 
+
+### Data Collection | 3 Options 
+    # 1. Manually collect data from live games and/or post games 
+    # 2. API Post-Game Stats 
+    # 3. API Live ESPN Stats 
