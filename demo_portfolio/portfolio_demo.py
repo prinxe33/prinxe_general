@@ -13,11 +13,11 @@ from datetime import datetime
 #   2. Portfolio Balance
 #################### 
 # Path to csv with trades
-demo_portfolio_csv_path = "C:\\Users\\ethan\\Desktop\\github rep\\demo_portfolio\\demo_portfolio_trades.csv"
+demo_portfolio_csv_path = "C:\\Users\\ethan\\Desktop\\github rep\\prinxe_general\\demo_portfolio\\demo_portfolio_trades.csv"
 # Path to csv with Porfolio Stats
-demo_portfolio_status_path = "C:\\Users\\ethan\\Desktop\\github rep\\demo_portfolio\\demo_portfolio_status.csv"
+demo_portfolio_status_path = "C:\\Users\\ethan\\Desktop\\github rep\\prinxe_general\\demo_portfolio\\demo_portfolio_status.csv"
 # Path to csv with Portfolio Stock Amounts 
-demo_portfolio_path = "C:\\Users\\ethan\\Desktop\\github rep\\demo_portfolio\\demo_portfolio_equities.csv" 
+demo_portfolio_path = "C:\\Users\\ethan\\Desktop\\github rep\\prinxe_general\\demo_portfolio\\demo_portfolio_equities.csv" 
 # Temporary storage for trade order 
 complete_trade = []
 
