@@ -11,17 +11,17 @@ from datetime import datetime
 #   - Input Trade into demo_portfolio_csv_path 
 #   - Re-run Stats collection on demo_portfolio_csv_path to find new values for demo_portfolio_status_path
 #- Reduce Holdings
-#   - Collect Trade from User
-#   - Input Trade into demo_portfolio_csv_path 
-#   - Re-Run Stats collection on demo_portfolio_csv_path to find amount of holdings 
+#   - Print out current trades in a numbered list 
+#   - Enter the percent that the trade shoud be reduced 
 #- Check Holdings
 #   1. Trade Balances
 #       - Go through demo_portfolio_csv_path to find balance of each trade 
 #       - Give a report on each Trade Balance 
+#           - PnL of each trade with balance (1D,1W,1M,1Y)
 #   2. Portfolio Balance
 #       - Go through demo_portfolio_csv_path to find balance for each equity 
 #       - Give a report on Porfolio Balance
-#       - PnL of each Equity, 1W, 1D, 1M, 1Y 
+#           - PnL of each Equity with balance (1W, 1D, 1M, 1Y)
 #################### 
 # Path to csv with trades
 demo_portfolio_csv_path = "C:\\Users\\ethan\\Desktop\\github rep\\prinxe_general\\demo_portfolio\\demo_portfolio_trades.csv"
@@ -66,7 +66,6 @@ def find_buy_amount(trade_input):
     elif trade_input[1] == "Short" or trade_input[1] == "SHORT" or trade_input[1] == "short" or trade_input[1] == str(0): 
         complete_trade.append(float(-1)*round((float(trade_input[3])*float(1000))/float(trade_input[4])))
     
-
 ## trascribetocsv(trade_input,link) 
 # Parameters: trade_input = (list), link =(link to csv file)
 # Purpose: To add trade_input as a new line to the linked csv file 
@@ -139,17 +138,29 @@ def recordingstats(trade_input):
         writer = csv.writer(file)
         writer.writerows(updated_lines)
 
-def input_trade():
+def add_to_holdings():
     global complete_trade
     inputing_trade()
     find_buy_price(complete_trade[0],complete_trade[2])
     find_buy_amount(complete_trade)
     transcribetocsv(complete_trade,demo_portfolio_csv_path)
     recordingstats(complete_trade) 
-# input_trade()
+# add_to_holdings()
     
+def print_out_trades(link):
+    with open(link, 'r') as file:
+        reader = csv.reader(file)
+        i = 1 
+        for row in reader:
+            print("Trade #" + str(i) + str(row))
+            i+=1 
+            
+def reduce_holdings():
+    print_out_trades(demo_portfolio_csv_path) 
 
-# Calculating Positions
+reduce_holdings()  
+
+
 def update_portfolio_shares(): 
     global demo_portfolio_csv_path
     temp = []
