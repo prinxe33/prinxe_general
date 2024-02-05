@@ -31,6 +31,7 @@ demo_portfolio_status_path = "C:\\Users\\ethan\\Desktop\\github rep\\prinxe_gene
 demo_portfolio_path = "C:\\Users\\ethan\\Desktop\\github rep\\prinxe_general\\demo_portfolio\\demo_portfolio_equities.csv" 
 # Temporary storage for trade order 
 complete_trade =  []
+temporary_list = [] 
  
 ## inputing_trade() 
 # Parameters: None 
@@ -63,9 +64,10 @@ def find_buy_amount(trade_input):
     global complete_trade 
     if trade_input[1] == "Long" or trade_input[1] == "LONG" or trade_input[1] == "long" or trade_input[1] == str(1): 
         complete_trade.append(round((float(trade_input[3])*float(1000))/float(trade_input[4])))
+        complete_trade.append(abs(float((trade_input[5]))*round((float(trade_input[3])*float(1000))/float(trade_input[4]))))
     elif trade_input[1] == "Short" or trade_input[1] == "SHORT" or trade_input[1] == "short" or trade_input[1] == str(0): 
         complete_trade.append(float(-1)*round((float(trade_input[3])*float(1000))/float(trade_input[4])))
-    
+        complete_trade.append(abs(float((trade_input[5]))*round((float(trade_input[3])*float(1000))/float(trade_input[4]))))
 ## trascribetocsv(trade_input,link) 
 # Parameters: trade_input = (list), link =(link to csv file)
 # Purpose: To add trade_input as a new line to the linked csv file 
@@ -148,6 +150,7 @@ def add_to_holdings():
 # add_to_holdings()
     
 def print_out_trades(link):
+    global temporary_list 
     with open(link, 'r') as file:
         reader = csv.reader(file)
         i = 1 
@@ -155,10 +158,26 @@ def print_out_trades(link):
             if len(row) > 0: 
                 print("Trade #" + str(i)+ " | " + str(row[0])+" "+ str(row[1])+" | " +str(row[2])+" | "+ str(row[3])+ " Units of Portfolio | $" +str(row[4])+ " | "+ str(row[5])+" Shares")
                 i+=1 
-            
+                temporary_list.append(row)
+
+def get_position_summary(trade_input): 
+    temp2 = []
+    for i in trade_input:
+        current_value = 0 
+        stock_data = yf.Ticker(i[0])
+        current_price = stock_data.history(period='1d')['Close'].iloc[-1]
+        if trade_input[1] == "Long" or trade_input[1] == "LONG" or trade_input[1] == "long" or trade_input[1] == str(1): 
+            current_value = abs( float(current_price)*float(i[6]) - abs(i[5]*i[6]) )
+        elif trade_input[1] == "Short" or trade_input[1] == "SHORT" or trade_input[1] == "short" or trade_input[1] == str(0): 
+            current_value = abs(abs(i[5]*i[6]) - float(current_price)*float(i[6]))
+        xx = 0 
+        print("Trade #"+ str(xx) + " | " + str(i[0])+ " " + str(i[1]) + " | Trade Value: " + str(current_value))
+        xx += 1 
+                    
+
 def reduce_holdings():
     print_out_trades(demo_portfolio_csv_path) 
-
+    get_position_summary(temporary_list)
 reduce_holdings()  
 
 
