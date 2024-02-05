@@ -24,7 +24,7 @@ from datetime import datetime
 #           - PnL of each Equity with balance (1W, 1D, 1M, 1Y)
 #################### 
 # Path to csv with trades
-demo_portfolio_csv_path = "C:\\Users\\ethan\\Desktop\\github rep\\prinxe_general\\demo_portfolio\\demo_portfolio_trades.csv"
+demo_portfolio_csv_path = "/Users/ethanschaefer/prinxe_general/demo_portfolio/demo_portfolio_trades.csv"
 # Path to csv with Porfolio Stats
 demo_portfolio_status_path = "C:\\Users\\ethan\\Desktop\\github rep\\prinxe_general\\demo_portfolio\\demo_portfolio_status.csv"
 # Path to csv with Portfolio Stock Amounts 
@@ -152,8 +152,9 @@ def print_out_trades(link):
         reader = csv.reader(file)
         i = 1 
         for row in reader:
-            print("Trade #" + str(i) + str(row))
-            i+=1 
+            if len(row) > 0: 
+                print("Trade #" + str(i)+ " | " + str(row[0])+" "+ str(row[1])+" | " +str(row[2])+" | "+ str(row[3])+ " Units of Portfolio | $" +str(row[4])+ " | "+ str(row[5])+" Shares")
+                i+=1 
             
 def reduce_holdings():
     print_out_trades(demo_portfolio_csv_path) 
