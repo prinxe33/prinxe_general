@@ -19,8 +19,8 @@ demo_portfolio_status_path = "C:\\Users\\ethan\\Desktop\\github rep\\prinxe_gene
 # Path to csv with Portfolio Stock Amounts 
 demo_portfolio_path = "C:\\Users\\ethan\\Desktop\\github rep\\prinxe_general\\demo_portfolio\\demo_portfolio_equities.csv" 
 # Temporary storage for trade order 
-complete_trade = []
-
+complete_trade =  []
+ 
 ## inputing_trade() 
 # Parameters: None 
 # Purpose: Run to add uesr input about trade to append each value to complete_trade (list)
