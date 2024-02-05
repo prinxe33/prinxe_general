@@ -7,10 +7,21 @@ from datetime import datetime
 #################### 
 ##-USE CASES 
 #- Add to Holdings
+#   - Collect Trade from User 
+#   - Input Trade into demo_portfolio_csv_path 
+#   - Re-run Stats collection on demo_portfolio_csv_path to find new values for demo_portfolio_status_path
 #- Reduce Holdings
+#   - Collect Trade from User
+#   - Input Trade into demo_portfolio_csv_path 
+#   - Re-Run Stats collection on demo_portfolio_csv_path to find amount of holdings 
 #- Check Holdings
 #   1. Trade Balances
+#       - Go through demo_portfolio_csv_path to find balance of each trade 
+#       - Give a report on each Trade Balance 
 #   2. Portfolio Balance
+#       - Go through demo_portfolio_csv_path to find balance for each equity 
+#       - Give a report on Porfolio Balance
+#       - PnL of each Equity, 1W, 1D, 1M, 1Y 
 #################### 
 # Path to csv with trades
 demo_portfolio_csv_path = "C:\\Users\\ethan\\Desktop\\github rep\\prinxe_general\\demo_portfolio\\demo_portfolio_trades.csv"
@@ -128,18 +139,17 @@ def recordingstats(trade_input):
         writer = csv.writer(file)
         writer.writerows(updated_lines)
 
-def call_trade():
+def input_trade():
     global complete_trade
     inputing_trade()
     find_buy_price(complete_trade[0],complete_trade[2])
     find_buy_amount(complete_trade)
     transcribetocsv(complete_trade,demo_portfolio_csv_path)
     recordingstats(complete_trade) 
-# call_trade()
+# input_trade()
     
 
 # Calculating Positions
-
 def update_portfolio_shares(): 
     global demo_portfolio_csv_path
     temp = []
@@ -171,10 +181,6 @@ def update_portfolio_shares():
                 writer = csv.writer(file)
                 writer.writerow(item)
  
-def update_portfolio_value():
-    pass
-
-def create_portfolio():
+def create_netportfolio_amounts():
     update_portfolio_shares()
-    update_portfolio_value()
-# create_portfolio()
+# create_netportfolio_amounts()
