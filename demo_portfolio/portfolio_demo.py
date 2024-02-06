@@ -26,9 +26,9 @@ from datetime import datetime
 # Path to csv with trades
 demo_portfolio_csv_path = "/Users/ethanschaefer/prinxe_general/demo_portfolio/demo_portfolio_trades.csv"
 # Path to csv with Porfolio Stats
-demo_portfolio_status_path = "C:\\Users\\ethan\\Desktop\\github rep\\prinxe_general\\demo_portfolio\\demo_portfolio_status.csv"
+demo_portfolio_status_path = "/Users/ethanschaefer/prinxe_general/demo_portfolio/demo_portfolio_status.csv"
 # Path to csv with Portfolio Stock Amounts 
-demo_portfolio_path = "C:\\Users\\ethan\\Desktop\\github rep\\prinxe_general\\demo_portfolio\\demo_portfolio_equities.csv" 
+demo_portfolio_path = "/Users/ethanschaefer/prinxe_general/demo_portfolio/demo_portfolio_equities.csv" 
 # Temporary storage for trade order 
 complete_trade =  []
 temporary_list = [] 
@@ -63,11 +63,11 @@ def find_buy_price(input1,input2):
 def find_buy_amount(trade_input):
     global complete_trade 
     if trade_input[1] == "Long" or trade_input[1] == "LONG" or trade_input[1] == "long" or trade_input[1] == str(1): 
-        complete_trade.append(round((float(trade_input[3])*float(1000))/float(trade_input[4])))
-        complete_trade.append(abs(float((trade_input[5]))*round((float(trade_input[3])*float(1000))/float(trade_input[4]))))
+        complete_trade.append(round(((float(trade_input[3])*float(1000))/float(trade_input[4])),4))
+        complete_trade.append(abs(float((trade_input[5]))*round((float(trade_input[4])),4)))
     elif trade_input[1] == "Short" or trade_input[1] == "SHORT" or trade_input[1] == "short" or trade_input[1] == str(0): 
         complete_trade.append(float(-1)*round((float(trade_input[3])*float(1000))/float(trade_input[4])))
-        complete_trade.append(abs(float((trade_input[5]))*round((float(trade_input[3])*float(1000))/float(trade_input[4]))))
+        complete_trade.append(abs(float((trade_input[5]))*round((float(trade_input[4])),4)))
 ## trascribetocsv(trade_input,link) 
 # Parameters: trade_input = (list), link =(link to csv file)
 # Purpose: To add trade_input as a new line to the linked csv file 
@@ -147,8 +147,8 @@ def add_to_holdings():
     find_buy_amount(complete_trade)
     transcribetocsv(complete_trade,demo_portfolio_csv_path)
     recordingstats(complete_trade) 
-# add_to_holdings()
-    
+add_to_holdings()
+
 def print_out_trades(link):
     global temporary_list 
     with open(link, 'r') as file:
@@ -162,15 +162,15 @@ def print_out_trades(link):
 
 def get_position_summary(trade_input): 
     temp2 = []
+    xx = 1
     for i in trade_input:
         current_value = 0 
         stock_data = yf.Ticker(i[0])
-        current_price = stock_data.history(period='1d')['Close'].iloc[-1]
+        current_price = float(stock_data.history(period='1d')['Close'].iloc[-1])
         if trade_input[1] == "Long" or trade_input[1] == "LONG" or trade_input[1] == "long" or trade_input[1] == str(1): 
             current_value = abs( float(current_price)*float(i[6]) - abs(i[5]*i[6]) )
         elif trade_input[1] == "Short" or trade_input[1] == "SHORT" or trade_input[1] == "short" or trade_input[1] == str(0): 
-            current_value = abs(abs(i[5]*i[6]) - float(current_price)*float(i[6]))
-        xx = 0 
+            current_value = abs(abs(i[5]*i[6]) - float(current_price)*float(i[6])) 
         print("Trade #"+ str(xx) + " | " + str(i[0])+ " " + str(i[1]) + " | Trade Value: " + str(current_value))
         xx += 1 
                     
@@ -178,7 +178,7 @@ def get_position_summary(trade_input):
 def reduce_holdings():
     print_out_trades(demo_portfolio_csv_path) 
     get_position_summary(temporary_list)
-reduce_holdings()  
+# reduce_holdings()  
 
 
 def update_portfolio_shares(): 
